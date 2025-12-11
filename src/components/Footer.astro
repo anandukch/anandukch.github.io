@@ -3,8 +3,8 @@ import Socials from "./Socials.astro";
 import Separator from "./Separator.astro";
 
 const currentYear = new Date().getFullYear();
-const commitHash = import.meta.env.GIT_COMMIT_HASH || "unknown";
-const githubRepo = "https://github.com/devadathanmb/personal-blog";
+// const commitHash = import.meta.env.GIT_COMMIT_HASH || "unknown";
+// const githubRepo = "https://github.com/anandukch/personal-blog";
 
 export interface Props {
   noMarginTop?: boolean;
@@ -25,7 +25,7 @@ const { noMarginTop = false } = Astro.props;
       </div>
     </div>
   </div>
-  <div class="deploy-info">
+  <!-- <div class="deploy-info">
     ⚡ Deployed commit: <a
       href={`${githubRepo}/commit/${commitHash}`}
       target="_blank"
@@ -33,7 +33,7 @@ const { noMarginTop = false } = Astro.props;
       class="commit-link"
       title="View commit on GitHub">{commitHash}</a
     >
-  </div>
+  </div> -->
 </footer>
 
 <style>
