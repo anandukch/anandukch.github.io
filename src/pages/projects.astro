@@ -6,11 +6,28 @@ const projects = await getCollection(
   "projects",
   ({ data }: CollectionEntry<"projects">) => !data.draft
 );
+
+// Define custom order for projects
+const projectOrder = ["reindeer", "nodal", "mocket", "luva", "localtoolbox"];
+
 const sortedProjects = projects.sort(
   (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) => {
-    if (a.data.featured && !b.data.featured) return -1;
-    if (!a.data.featured && b.data.featured) return 1;
-    return 0;
+    const aIndex = projectOrder.indexOf(a.slug);
+    const bIndex = projectOrder.indexOf(b.slug);
+
+    // If both are in the custom order, sort by that order
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+
+    // If only a is in the custom order, it comes first
+    if (aIndex !== -1) return -1;
+
+    // If only b is in the custom order, it comes first
+    if (bIndex !== -1) return 1;
+
+    // For projects not in the custom order, maintain alphabetical order
+    return a.slug.localeCompare(b.slug);
   }
 );
 ---

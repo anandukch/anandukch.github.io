@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-## Hey, I'm Anandu 👋
+## Hey, I'm Anandu S👋
 
 I build things that solve real problems.
 
